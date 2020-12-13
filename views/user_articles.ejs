@@ -1,0 +1,51 @@
+
+      <%- include('admin_header') %>    
+    
+      <!-- / .main-navbar   -->
+      <!-- Main Body start   -->
+      <div class="main-content-container container-fluid px-4">
+        <!-- Page Header -->
+        <div class="page-header row no-gutters py-4">
+          <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Components</span>
+            <h3 class="page-title">Blog Posts</h3>
+          </div>
+        </div>
+        <!-- End Page Header -->
+        <div class="row">
+          <% articles.forEach(article => { %>
+            
+          
+          <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+            <div class="card card-small card-post card-post--1">
+              <div class="card-post__image" style="background-image: url('/uploads/posts/<%= article.image %>');">
+                <a href="#" class="card-post__category badge badge-pill badge-dark">Business</a>
+                <div class="card-post__author d-flex">
+                  <a href="#" class="card-post__author-avatar card-post__author-avatar--small" style="background-image: url('/uploads/users/<%= user.image %>');">Written by Anna Kunis</a>
+                </div>
+              </div>
+              <div class="card-body">
+                
+                <h5 class="card-title">
+                  <a class="text-fiord-blue" href="/nd-admin/user-article/<%= article.slug %>"><%= article.title %></a>
+                </h5>
+                <span class="text-muted mb-4"><%= article.createDate.toLocaleDateString() %></span>
+                <p class="card-text d-inline-block mb-3"><%= article.body.substring(0, 200) %></p>
+                <div class="card-text mb-2">
+                <a class="btn btn-primary" href="/nd-admin/user-article/<%= article.slug %> ">Read More</a>
+                <a class="btn btn-info" href="/nd-admin/user-article/edit/<%= article.id %> ">Edit</a>
+                <form action="/nd-admin/user-article/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <% }); %> 
+
+        </div>
+
+      </div>
+     
+<%- include('admin_footer') %> 

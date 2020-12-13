@@ -1,0 +1,33 @@
+
+      <%- include('admin_header') %>    
+   
+          <!-- / .main-navbar   -->
+          <!-- Main Body start   -->
+          <div class="main-content-container container-fluid px-4">
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+              <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Single Post</span>
+                <h3 class="page-title">Post Overview</h3>
+              </div>
+            </div>
+            <!-- End Page Header -->
+            <!-- Small Stats Blocks -->
+            <div class="row">
+  
+              <div class="container">
+                <h1 class="mb-1"><%= article.title %></h1>
+                <img class="card-img-top" src="/uploads/posts/<%= article.image %>" alt="Card image cap">
+                <div class="text-muted mb-2">
+                    <%= article.createDate.toLocaleDateString() %> </div>
+                    <a href="/nd-admin/user-article/" class="btn btn-secondary">Back</a>
+                    <a href="/nd-admin/user-article/edit/<%= article.id %> " class="btn btn-info">Edit</a>
+                       <hr> 
+                    <div class="mb-4"><%- article.sanitizedHtml %> </div>
+            </div>
+
+            </div>
+           
+            
+         
+   <%- include('admin_footer') %> 
